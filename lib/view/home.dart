@@ -35,7 +35,7 @@ class Home extends StatelessWidget {
                       RoundedRectangleBorder(
                         side: BorderSide(
                           color: Colors.black
-                        )
+                        ),borderRadius: BorderRadius.circular(25)
                       )
                     ),
                     elevation: WidgetStatePropertyAll(0),
@@ -48,7 +48,39 @@ class Home extends StatelessWidget {
                   Icon(Icons.sort_by_alpha)
                 ],
               ),
-            )
+            ),
+           Expanded(
+             child: ListView.separated(
+                 itemBuilder: (context,index)
+                 {
+                   return  ListTile(
+                     leading: CircleAvatar(
+                       backgroundColor: Colors.red,
+                       child: Text('$index',
+                         style: TextStyle(
+                             fontSize: 22,
+                             color: Colors.white),),
+                     ),
+                     title: Text('Gedeon',style: TextStyle(fontWeight: FontWeight.bold),),
+                     subtitle: Text('Dev Mobile'),
+                     trailing:
+                     Row(
+                       mainAxisSize: MainAxisSize.min,
+                       children: [
+                         CircleAvatar(child: Icon(Icons.call,size: 15,),
+                             radius: 15),
+                         SizedBox(width: 15,),
+                         CircleAvatar(child: Icon(Icons.message,size: 15),
+                           radius: 15,)
+                       ],
+                     ),
+                   );
+                 },
+                 separatorBuilder: (context,index){
+                   return Divider();
+                 },
+                 itemCount: 10),
+           )
           ],
           ),
         ) ,
