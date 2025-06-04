@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:contactapp/model/user.dart';
+import 'package:contactapp/data/data.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -56,13 +58,13 @@ class Home extends StatelessWidget {
                    return  ListTile(
                      leading: CircleAvatar(
                        backgroundColor: Colors.red,
-                       child: Text('$index',
+                       child: Text(listeUer[index].nom[1],
                          style: TextStyle(
                              fontSize: 22,
                              color: Colors.white),),
                      ),
-                     title: Text('Gedeon',style: TextStyle(fontWeight: FontWeight.bold),),
-                     subtitle: Text('Dev Mobile'),
+                     title: Text(listeUer[index].nom.toUpperCase(),style:TextStyle(fontWeight: FontWeight.bold),),
+                     subtitle: Text(listeUer[index].post),
                      trailing:
                      Row(
                        mainAxisSize: MainAxisSize.min,
